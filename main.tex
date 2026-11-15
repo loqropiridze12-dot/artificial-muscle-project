@@ -1,0 +1,555 @@
+
+\documentclass[12pt,a4paper]{article}
+
+% ქართული შრიფტი
+\usepackage{fontspec}
+\setmainfont{DejaVu Sans}
+
+% ბიბლიოთეკები
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{graphicx}
+
+\usetikzlibrary{
+    arrows.meta,
+    positioning,
+    shapes.geometric,
+    calc,
+    decorations.pathmorphing
+}
+
+% გვერდის დიზაინი
+\geometry{
+    left=2.2cm,
+    right=2.2cm,
+    top=2.3cm,
+    bottom=2.3cm
+}
+
+\onehalfspacing
+\setlength{\parindent}{0.7cm}
+
+% ფერები
+\definecolor{navy}{RGB}{22,55,92}
+\definecolor{blue}{RGB}{40,120,190}
+\definecolor{lightblue}{RGB}{225,241,252}
+\definecolor{cyan}{RGB}{30,170,190}
+\definecolor{orange}{RGB}{240,145,50}
+\definecolor{lightorange}{RGB}{255,240,220}
+\definecolor{green}{RGB}{55,145,105}
+\definecolor{lightgreen}{RGB}{225,245,235}
+\definecolor{red}{RGB}{190,65,65}
+\definecolor{lightgray}{RGB}{242,245,248}
+
+% სათაურები
+\titleformat{\section}
+{\Large\bfseries\color{navy}}
+{\thesection.}{0.5em}{}
+
+\titleformat{\subsection}
+{\large\bfseries\color{blue}}
+{\thesubsection.}{0.5em}{}
+
+% გვერდის ნომრები
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{navy} ხელოვნური კუნთი}
+\fancyhead[R]{\small Artificial Muscle}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ინფორმაციის ბლოკები
+\newtcolorbox{infobox}{
+    colback=lightblue,
+    colframe=blue,
+    arc=3mm,
+    boxrule=0.8pt,
+    left=3mm,
+    right=3mm,
+    top=2mm,
+    bottom=2mm
+}
+
+\newtcolorbox{examplebox}{
+    colback=lightorange,
+    colframe=orange,
+    arc=3mm,
+    boxrule=0.8pt,
+    left=3mm,
+    right=3mm,
+    top=2mm,
+    bottom=2mm
+}
+
+\begin{document}
+
+% =========================
+% ყდის გვერდი
+% =========================
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{1.5cm}
+
+{\Huge\bfseries\color{navy} ხელოვნური კუნთი}
+
+\vspace{0.5cm}
+
+{\LARGE\color{blue} ARTIFICIAL MUSCLE}
+
+\vspace{0.8cm}
+
+{\large ტექნოლოგია, რომელიც მექანიკურ სამყაროს მოძრაობას სძენს}
+
+\vspace{1.5cm}
+
+% დეკორატიული ილუსტრაცია
+\begin{tikzpicture}[scale=1.1]
+
+% რობოტული მკლავი
+\draw[line width=15pt,blue!60,line cap=round]
+(0,0)--(1.7,1.3);
+
+\draw[line width=13pt,cyan!65,line cap=round]
+(1.7,1.3)--(3.2,2.2);
+
+\fill[orange] (1.7,1.3) circle (0.18);
+\fill[navy] (0,0) circle (0.22);
+\fill[navy] (3.2,2.2) circle (0.15);
+
+% თითები
+\draw[line width=4pt,blue!60,line cap=round]
+(3.2,2.2)--(3.8,2.7);
+\draw[line width=4pt,blue!60,line cap=round]
+(3.2,2.2)--(4.0,2.3);
+\draw[line width=4pt,blue!60,line cap=round]
+(3.2,2.2)--(3.8,1.9);
+
+% კუნთის ხაზები
+\draw[red,line width=2pt]
+(0.5,0.4)--(1.5,1.1);
+\draw[red,line width=2pt]
+(1.9,1.5)--(2.9,2.0);
+
+\node[below] at (1.6,-0.5)
+{\small რობოტული მოძრაობის მოდელი};
+
+\end{tikzpicture}
+
+\vspace{1.5cm}
+
+\begin{infobox}
+\centering
+\textbf{პროექტის მთავარი მიზანი}
+
+ხელოვნური კუნთების მუშაობის პრინციპების,
+სახეობების და თანამედროვე ტექნოლოგიებში
+მათი გამოყენების შესწავლა.
+\end{infobox}
+
+\vfill
+
+{\large სასწავლო პროექტი}
+
+\vspace{0.5cm}
+
+\end{center}
+\end{titlepage}
+
+% =========================
+% შესავალი
+% =========================
+
+\section{რა არის ხელოვნური კუნთი?}
+
+ხელოვნური კუნთი არის სპეციალური მოწყობილობა ან მასალა, რომელსაც შეუძლია ადამიანის ბუნებრივი კუნთის მსგავსი მოძრაობის შესრულება. მას შეუძლია შეკუმშვა, გაწელვა, მოხრა და მექანიკური ძალის წარმოქმნა.
+
+ბუნებრივი კუნთი მოძრაობს ნერვული სისტემიდან მიღებული სიგნალების დახმარებით. ხელოვნური კუნთი კი ენერგიის სხვადასხვა წყაროს იყენებს, მაგალითად, ელექტროენერგიას, შეკუმშულ ჰაერს, სითხის წნევას ან ტემპერატურის ცვლილებას.
+
+\begin{infobox}
+\textbf{მთავარი იდეა:} ხელოვნური კუნთი ენერგიას გარდაქმნის მექანიკურ მოძრაობად. მისი დახმარებით შესაძლებელია რობოტის თითის მოხრა, მექანიკური ხელის ამოძრავება ან პროთეზის მოძრაობა.
+\end{infobox}
+
+\section{როგორ მუშაობს ხელოვნური კუნთი?}
+
+მისი მუშაობის პრინციპი დამოკიდებულია გამოყენებულ ტექნოლოგიაზე. თუმცა, ზოგადად, პროცესი რამდენიმე ეტაპს მოიცავს:
+
+\begin{center}
+\begin{tikzpicture}[
+node distance=0.65cm,
+box/.style={
+draw=blue,
+fill=lightblue,
+rounded corners=3mm,
+minimum width=3cm,
+minimum height=1cm,
+align=center,
+font=\small\bfseries
+},
+arr/.style={-{Stealth},very thick,navy}
+]
+
+\node[box] (a) {ენერგიის მიღება};
+\node[box,right=of a] (b) {ენერგიის გარდაქმნა};
+\node[box,right=of b] (c) {კუნთის მოძრაობა};
+\node[box,right=of c] (d) {მექანიზმის ამოძრავება};
+
+\draw[arr] (a)--(b);
+\draw[arr] (b)--(c);
+\draw[arr] (c)--(d);
+
+\end{tikzpicture}
+\end{center}
+
+მაგალითად, როდესაც ხელოვნური კუნთი იღებს ელექტრულ სიგნალს, ის შეიძლება შეიკუმშოს ან შეიცვალოს მისი ფორმა. ეს ცვლილება წარმოქმნის ძალას, რომელსაც შეუძლია სხვა მექანიზმის ამოძრავება.
+
+% =========================
+% პნევმატიკური კუნთი
+% =========================
+
+\section{პნევმატიკური ხელოვნური კუნთი}
+
+პნევმატიკური კუნთი მუშაობს შეკუმშული ჰაერის დახმარებით. მისი ერთ-ერთი ცნობილი სახეობაა მაკკიბენის კუნთი (McKibben Muscle).
+
+ის შედგება მოქნილი შიდა მილისა და გარე ბადისებრი გარსისგან.
+
+\subsection{როგორ ხდება შეკუმშვა?}
+
+როდესაც შიდა მილში შეკუმშული ჰაერი შედის, მილი სიგანეში ფართოვდება. გარე ბადისებრი გარსი კი მის სიგრძეში გაფართოებას ზღუდავს. შედეგად, მთელი კონსტრუქცია სიგრძეში მოკლდება და წარმოქმნის გამწევ ძალას.
+
+\begin{center}
+\textbf{\color{navy} პნევმატიკური კუნთის მუშაობის სქემა}
+
+\vspace{0.5cm}
+
+\begin{tikzpicture}[scale=0.95]
+
+% პირველი მდგომარეობა
+\node[font=\bfseries,color=blue] at (2,3.2)
+{ჰაერის გარეშე};
+
+\draw[fill=lightblue,draw=blue,thick,rounded corners=5pt]
+(0,1.3) rectangle (4,2.1);
+
+\foreach \x in {0.2,0.6,...,3.8}{
+\draw[blue!70,thick] (\x,1.3)--(\x+0.35,2.1);
+}
+\foreach \x in {0.2,0.6,...,3.8}{
+\draw[blue!70,thick] (\x,2.1)--(\x+0.35,1.3);
+}
+
+\node[below] at (2,0.9) {\small გრძელი მდგომარეობა};
+
+% ისარი
+\draw[-{Stealth},very thick,orange]
+(4.5,1.7)--(5.8,1.7);
+
+\node[above] at (5.15,1.8)
+{\scriptsize ჰაერი};
+
+% მეორე მდგომარეობა
+\node[font=\bfseries,color=red] at (8,3.2)
+{შეკუმშული};
+
+\draw[fill=lightorange,draw=red,thick,rounded corners=5pt]
+(6.5,1.3) rectangle (9.5,2.1);
+
+\foreach \x in {6.6,7.1,...,9.2}{
+\draw[red!80,thick] (\x,1.3)--(\x+0.5,2.1);
+}
+\foreach \x in {6.6,7.1,...,9.2}{
+\draw[red!80,thick] (\x,2.1)--(\x+0.5,1.3);
+}
+
+\node[below] at (8,0.9) {\small მოკლე მდგომარეობა};
+
+\draw[-{Stealth},red,thick]
+(6.5,2.5)--(7.1,2.5);
+\draw[-{Stealth},red,thick]
+(9.5,2.5)--(8.9,2.5);
+
+\end{tikzpicture}
+\end{center}
+
+\begin{examplebox}
+\textbf{რეალური მაგალითი:}
+
+ასეთი კუნთი შეიძლება გამოიყენონ რობოტულ ხელში. როდესაც ის იკუმშება, თითი იხრება, ხოლო როდესაც ჰაერი გამოიდევნება, თითი საწყის მდგომარეობას უბრუნდება.
+\end{examplebox}
+
+% =========================
+% რობოტული ხელი
+% =========================
+
+\section{ხელოვნური კუნთები რობოტულ ხელში}
+
+რობოტული ხელი ერთ-ერთი ყველაზე საინტერესო მაგალითია, სადაც ხელოვნური კუნთების გამოყენება შეიძლება.
+
+ადამიანის ხელში კუნთები და მყესები თითების მოძრაობას უზრუნველყოფს. რობოტულ ხელში კი ამ ფუნქციის შესრულება შეუძლიათ ხელოვნურ აქტუატორებს, რომლებიც თითებს ხრიან და შლიან.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+
+% ხელისგული
+\draw[fill=lightblue,draw=blue,line width=1.5pt]
+(1.2,0.2) rectangle (3.1,2.3);
+
+% თითები
+\foreach \x/\h in {1.35/1.8,1.8/2.2,2.3/2.0,2.75/1.6}{
+\draw[fill=lightblue,draw=blue,line width=1.5pt,rounded corners=3pt]
+(\x,2.3) rectangle (\x+0.3,2.3+\h);
+\draw[orange,line width=3pt]
+(\x+0.15,2.5)--(\x+0.15,2.3+\h-0.3);
+}
+
+% ცერი
+\draw[fill=lightblue,draw=blue,line width=1.5pt,rounded corners=3pt]
+(0.3,0.6) rectangle (1.2,1.0);
+\draw[orange,line width=3pt]
+(0.55,0.8)--(1.0,0.8);
+
+% კუნთის ხაზები
+\draw[red,line width=2pt]
+(1.5,0.4)--(1.5,1.9);
+\draw[red,line width=2pt]
+(2.0,0.4)--(2.0,2.0);
+\draw[red,line width=2pt]
+(2.5,0.4)--(2.5,1.8);
+
+\node[red,right] at (3.3,1.5)
+{\small ხელოვნური კუნთები};
+
+\node[blue,right] at (3.3,2.3)
+{\small მოძრავი თითები};
+
+\node[orange,right] at (3.3,0.7)
+{\small გამწევი ელემენტები};
+
+\end{tikzpicture}
+\end{center}
+
+\textit{სურათი არის გამარტივებული სასწავლო სქემა და არა კონკრეტული რობოტის ზუსტი კონსტრუქცია.}
+
+\subsection{როგორ მოძრაობს რობოტის თითი?}
+
+\begin{enumerate}
+    \item მართვის სისტემა აგზავნის სიგნალს.
+    \item აქტუატორი წარმოქმნის ძალას.
+    \item ძალა გადაეცემა თითის მექანიზმს.
+    \item თითი იხრება ან იშლება.
+\end{enumerate}
+
+ეს ტექნოლოგია განსაკუთრებით საინტერესოა პროთეზებისა და დამხმარე რობოტების შესაქმნელად.
+
+% =========================
+% ტიპები
+% =========================
+
+\section{ხელოვნური კუნთების სხვადასხვა ტიპები}
+
+ხელოვნური კუნთების რამდენიმე ძირითადი ტექნოლოგია არსებობს.
+
+\subsection{1. პნევმატიკური კუნთი}
+
+\begin{center}
+\begin{tikzpicture}
+\draw[fill=lightblue,draw=blue,thick,rounded corners=5pt]
+(0,0) rectangle (4,0.8);
+\foreach \x in {0.2,0.7,...,3.7}{
+\draw[blue,thick] (\x,0)--(\x+0.5,0.8);
+\draw[blue,thick] (\x,0.8)--(\x+0.5,0);
+}
+\node[below] at (2,-0.2) {\small შეკუმშული ჰაერი};
+\end{tikzpicture}
+\end{center}
+
+იყენებს ჰაერის წნევას და შეუძლია შეკუმშვა. გამოიყენება რობოტულ ხელებსა და მოქნილ მექანიზმებში.
+
+\subsection{2. ელექტროაქტიური პოლიმერი}
+
+\begin{center}
+\begin{tikzpicture}
+\draw[fill=lightorange,draw=orange,thick]
+(0,0) rectangle (3,0.3);
+\draw[fill=lightblue,draw=blue,thick]
+(0,0.4) rectangle (3,0.7);
+\draw[-{Stealth},red,thick] (1.5,1.3)--(1.5,0.8);
+\node[above] at (1.5,1.35) {\small ელექტრული სიგნალი};
+\node[below] at (1.5,-0.2) {\small მოქნილი პოლიმერული ფენა};
+\end{tikzpicture}
+\end{center}
+
+ელექტრული ველის ზემოქმედებით ზოგიერთი პოლიმერი ფორმას ან ზომას იცვლის. ეს მასალები განსაკუთრებით საინტერესოა მცირე ზომის მოქნილი მოწყობილობებისთვის.
+
+\subsection{3. ფორმის მეხსიერების შენადნობი}
+
+\begin{center}
+\begin{tikzpicture}
+\draw[gray,very thick,decorate,
+decoration={coil,segment length=4pt,amplitude=5pt}]
+(0,0)--(2.5,0);
+\draw[-{Stealth},orange,thick] (1.2,0.9)--(1.2,0.3);
+\node[above] at (1.2,0.9) {\small გათბობა};
+\node[below] at (1.2,-0.3) {\small ფორმის შეცვლა};
+\end{tikzpicture}
+\end{center}
+
+ეს შენადნობები ტემპერატურის ცვლილებისას წინასწარ განსაზღვრულ ფორმას უბრუნდებიან. ამის გამოყენება შესაძლებელია პატარა მექანიზმებში.
+
+\subsection{4. ჰიდრავლიკური აქტუატორი}
+
+\begin{center}
+\begin{tikzpicture}
+\draw[fill=lightblue,draw=blue,thick]
+(0,0) rectangle (2.8,0.8);
+\draw[fill=orange,draw=orange]
+(2.8,0.25) rectangle (3.8,0.55);
+\draw[-{Stealth},blue,thick] (-0.7,0.4)--(0,0.4);
+\node[above] at (1.4,0.9) {\small სითხის წნევა};
+\node[below] at (1.4,-0.2) {\small ჰიდრავლიკური ცილინდრი};
+\end{tikzpicture}
+\end{center}
+
+სითხის წნევის დახმარებით ქმნის მექანიკურ ძალას. გამოიყენება ისეთ სისტემებში, რომლებსაც ძლიერი მოძრაობა სჭირდებათ.
+
+% =========================
+% გამოყენება
+% =========================
+
+\section{სად გამოიყენება ხელოვნური კუნთები?}
+
+\subsection{მედიცინა და პროთეზები}
+
+\begin{center}
+\begin{tikzpicture}
+\draw[fill=lightblue,draw=blue,thick,rounded corners=4pt]
+(0,0) rectangle (1.2,2);
+\draw[orange,line width=4pt] (0.6,0.4)--(0.6,1.6);
+\draw[blue,line width=2pt] (0.3,0.5)--(0.9,1.5);
+\node[below] at (0.6,-0.2) {\small პროთეზი};
+\end{tikzpicture}
+\end{center}
+
+ხელოვნური აქტუატორები შეიძლება გამოყენებული იყოს პროთეზებში, რათა მათ სხვადასხვა მოძრაობის შესრულება შეძლონ.
+
+\subsection{რობოტიკა}
+
+\begin{center}
+\begin{tikzpicture}
+% რობოტის სხეული
+\draw[fill=lightblue,draw=blue,thick,rounded corners=5pt]
+(0,0) rectangle (1.5,1.5);
+\draw[fill=navy] (0.3,1.1) circle (0.1);
+\draw[fill=navy] (1.2,1.1) circle (0.1);
+\draw[blue,line width=5pt] (0.3,0)--(-0.3,-0.8);
+\draw[blue,line width=5pt] (1.2,0)--(2,-0.8);
+\draw[orange,line width=3pt] (1.5,0.7)--(2.1,0.3);
+\node[below] at (0.7,-1) {\small რობოტი};
+\end{tikzpicture}
+\end{center}
+
+რობოტებში ხელოვნური კუნთები ხელს უწყობს მოქნილი მოძრაობების შესრულებას და საგნებთან ურთიერთქმედებას.
+
+\subsection{ეგზოჩონჩხები}
+
+ეგზოჩონჩხი არის სპეციალური მოწყობილობა, რომელიც ადამიანის სხეულზე მაგრდება და მოძრაობის შესრულებაში ეხმარება. მასში შეიძლება გამოყენებული იყოს ელექტრული, პნევმატიკური ან ჰიდრავლიკური აქტუატორები.
+
+\subsection{სარეაბილიტაციო მოწყობილობები}
+
+ასეთი ტექნოლოგიები შეიძლება გამოიყენებოდეს მოძრაობის დამხმარე მოწყობილობებში, რომლებიც ადამიანს გარკვეული მოძრაობების შესრულებაში ეხმარება.
+
+% =========================
+% შედარება
+% =========================
+
+\section{უპირატესობები და ნაკლოვანებები}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|p{6cm}|p{6cm}|}
+\hline
+\rowcolor{lightgreen}
+\textbf{უპირატესობები} &
+\textbf{ნაკლოვანებები} \\
+\hline
+მოქნილი მოძრაობის შესაძლებლობა &
+ზოგიერთ სისტემას რთული მართვა სჭირდება \\
+\hline
+ზოგიერთი ტიპის მცირე წონა &
+ენერგიის მუდმივი მიწოდების საჭიროება \\
+\hline
+რობოტებთან ინტეგრირების შესაძლებლობა &
+მასალების ცვეთა და შეზღუდული გამძლეობა \\
+\hline
+მედიცინაში გამოყენების პოტენციალი &
+წარმოების მაღალი ღირებულება ზოგიერთ შემთხვევაში \\
+\hline
+\end{tabular}
+\end{center}
+
+% =========================
+% მომავალი
+% =========================
+
+\section{ხელოვნური კუნთების მომავალი}
+
+ხელოვნური კუნთების ტექნოლოგია სწრაფად ვითარდება. მეცნიერები ცდილობენ შექმნან მასალები, რომლებიც უფრო გამძლე, მსუბუქი და ეფექტური იქნება.
+
+მომავალში მათი გამოყენება შესაძლებელია:
+
+\begin{itemize}
+    \item უფრო მოქნილ ჰუმანოიდ რობოტებში;
+    \item განვითარებულ სამედიცინო პროთეზებში;
+    \item ადამიანის მოძრაობის დამხმარე სისტემებში;
+    \item მცირე ზომის სამედიცინო რობოტებში;
+    \item თანამედროვე სამრეწველო მექანიზმებში.
+\end{itemize}
+
+\begin{infobox}
+\textbf{საინტერესო ფაქტი:}
+
+ხელოვნური კუნთების მიზანი მხოლოდ რობოტის მოძრაობა არ არის. მათი დახმარებით მეცნიერები ცდილობენ შექმნან ისეთი სისტემები, რომლებიც ბუნებრივი კუნთების მოქნილობასა და მოძრაობის პრინციპებს მიუახლოვდება.
+\end{infobox}
+
+% =========================
+% დასკვნა
+% =========================
+
+\section{დასკვნა}
+
+ხელოვნური კუნთი თანამედროვე მეცნიერებისა და ინჟინერიის ერთ-ერთი მნიშვნელოვანი მიმართულებაა. ის აერთიანებს ფიზიკის, ქიმიის, მასალათმცოდნეობისა და რობოტიკის პრინციპებს.
+
+მისი მუშაობის შესწავლა გვიჩვენებს, თუ როგორ შეიძლება სხვადასხვა ენერგიის მექანიკურ მოძრაობად გარდაქმნა. ეს ტექნოლოგია უკვე გამოიყენება სხვადასხვა საინჟინრო და სამედიცინო მიმართულებაში და მომავალში კიდევ უფრო მნიშვნელოვანი გახდება.
+
+ხელოვნური კუნთების განვითარება მეცნიერებს საშუალებას მისცემს შექმნან უფრო მოქნილი, ზუსტი და ადამიანის მოძრაობებთან მიახლოებული რობოტები.
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tcolorbox}[
+colback=navy,
+colframe=navy,
+width=0.9\textwidth,
+arc=3mm
+]
+\centering
+\color{white}
+\Large\bfseries
+ხელოვნური კუნთი
+
+\vspace{0.2cm}
+
+\normalsize
+მომავლის ტექნოლოგია, რომელიც ენერგიას მოძრაობად გარდაქმნის.
+\end{tcolorbox}
+\end{center}
+
+\end{document}
